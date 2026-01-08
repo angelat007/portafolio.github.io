@@ -15,6 +15,12 @@
 </head>
 
 <body>
+    <!-- Cambio de modo -->
+    <button id="theme-toggle" class="theme-toggle">
+        🌙
+    </button>
+
+
     <!-- Info -->
     <header>
         <div class="container">
@@ -57,6 +63,16 @@
                         problemas de todos</p>
                 </div>
             </div>
+        </div>
+    </section>
+
+     <!-- Sección de redes sociales -->
+    <section class="socials">
+        <h2>Mis redes</h2>
+        <div class="social-links">
+            <a href="https://www.facebook.com/profile.php?id=61573106491078" target="_blank" class="facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/angelpj007/" target="_blank" class="instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.tiktok.com/@ang.mtb?lang=es" target="_blank" class="tiktok"><i class="fab fa-tiktok"></i></a>
         </div>
     </section>
 
@@ -261,7 +277,6 @@
         </div>
     </section>
 
-
     <!-- CONTACTO -->
     <section id="contacto" class="section">
         <div class="container grid reveal" style="grid-template-columns:1.1fr .9fr;align-items:center">
@@ -290,7 +305,6 @@
         </div>
     </section>
 
-
     <!-- Footer -->
     <footer>
         <div class="container">
@@ -303,6 +317,15 @@
 
     <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
     <script src="JS/script.js"></script>
+
+    <script>
+        const toggle = document.getElementById("theme-toggle");
+
+        toggle.addEventListener("click", () => {
+            document.body.classList.toggle("light");
+            toggle.textContent = document.body.classList.contains("light") ? "☀️" : "🌙";
+        });
+    </script>
 
 </body>
 

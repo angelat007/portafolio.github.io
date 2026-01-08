@@ -549,3 +549,90 @@ textarea {
   min-height: 120px;
   resize: vertical
 }
+
+.socials {
+  margin-top: 4rem;
+  text-align: center;
+}
+
+.socials h2 {
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.social-links a {
+  width: 50px;
+  height: 50px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text);
+  font-size: 22px;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.social-links a:hover {
+  transform: translateY(-5px);
+}
+
+.social-links .facebook:hover {
+  background: #1877f2;
+  color: #fff;
+}
+
+.social-links .instagram:hover {
+  background: linear-gradient(45deg, #f58529, #dd2a7b, #8134af);
+  color: #fff;
+}
+
+.social-links .tiktok:hover {
+  background: #000;
+  color: #fff;
+}
+
+
+/* ======================
+   MODO CLARO
+====================== */
+
+body.light {
+  --primary: #f8fafc;
+  --secondary: #e2e8f0;
+  --accent: #2563eb;
+  --accent-light: #3b82f6;
+  --text: #0f172a;
+  --text-dim: #475569;
+  --surface: #ffffff;
+  --border: #cbd5e1;
+
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+}
+
+/* Transición suave */
+body {
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.theme-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--border);
+  padding: 10px 12px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 18px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+}

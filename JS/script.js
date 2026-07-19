@@ -5,11 +5,10 @@
    ============================================================ */
 
 /* ------------------------------------------------------------
-   CONFIG — reemplaza este número por tu WhatsApp real
-   Formato: código de país + número, sin "+", sin espacios.
-   Ejemplo República Dominicana: "18095551234"
+   CONFIG — reemplaza por tu correo real donde quieres recibir
+   los mensajes del formulario de contacto.
 ------------------------------------------------------------ */
-const WHATSAPP_NUMBER = "18095551234"; // TODO: reemplazar por el número real
+const RECIPIENT_EMAIL = "tucorreo@gmail.com"; // TODO: reemplazar por tu correo real
 
 (() => {
   "use strict";
@@ -342,7 +341,7 @@ const WHATSAPP_NUMBER = "18095551234"; // TODO: reemplazar por el número real
     requestAnimationFrame(drawAurora);
   }
 
-  /* ================= CONTACT FORM → WHATSAPP ================= */
+  /* ================= CONTACT FORM → GMAIL ================= */
   const form = document.getElementById("contact-form");
   const statusEl = document.getElementById("status");
   const submitBtn = document.getElementById("submitBtn");
@@ -398,17 +397,24 @@ const WHATSAPP_NUMBER = "18095551234"; // TODO: reemplazar por el número real
 
     // Pequeña pausa para mostrar el estado de carga antes de redirigir
     setTimeout(() => {
-      const text =
-        `Hola Angel.\n\n` +
+      const subject = `Contacto desde el portafolio — ${data.from_name}`;
+      const body =
+        `Hola Angel,\n\n` +
         `Mi nombre es: ${data.from_name}\n` +
-        `Correo: ${data.from_email}\n` +
-        `Mensaje: ${data.message}\n\n` +
+        `Mi correo es: ${data.from_email}\n\n` +
+        `Mensaje:\n${data.message}\n\n` +
         `Me interesa hablar contigo sobre un proyecto.`;
 
-      const whatsappUrl = `https://wa.me/${8492574690}?text=${encodeURIComponent(text)}`;
-      window.open(whatsappUrl, "_blank", "noopener");
+      // Abre Gmail (web) con el correo ya redactado, listo para enviar
+      const gmailUrl =
+        `https://mail.google.com/mail/?view=cm&fs=1&tf=1` +
+        `&to=${encodeURIComponent(RECIPIENT_EMAIL)}` +
+        `&su=${encodeURIComponent(subject)}` +
+        `&body=${encodeURIComponent(body)}`;
 
-      statusEl.textContent = "✅ Abriendo WhatsApp con tu mensaje…";
+      window.open(gmailUrl, "_blank", "noopener");
+
+      statusEl.textContent = "✅ Abriendo Gmail con tu mensaje listo para enviar…";
       statusEl.classList.add("success");
 
       submitBtn.disabled = false;

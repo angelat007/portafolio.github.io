@@ -514,39 +514,6 @@ h1.hero-name {
   flex-wrap: wrap;
 }
 
-.scroll-indicator {
-  position: absolute;
-  bottom: 2.4rem;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 2;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: .5rem;
-  color: var(--text-faint);
-}
-.scroll-indicator .mouse {
-  width: 24px; height: 38px;
-  border: 1.5px solid var(--border-strong);
-  border-radius: 14px;
-  display: flex;
-  justify-content: center;
-  padding-top: 6px;
-}
-.scroll-indicator .mouse::before {
-  content: '';
-  width: 3px; height: 8px;
-  background: var(--accent);
-  border-radius: 2px;
-  animation: scroll-wheel 1.6s ease infinite;
-}
-@keyframes scroll-wheel {
-  0% { transform: translateY(0); opacity: 1; }
-  70% { transform: translateY(10px); opacity: 0; }
-  100% { opacity: 0; }
-}
-
 /* ============ REVEAL / SCROLL ANIMATIONS ============ */
 [data-reveal] {
   opacity: 0;
